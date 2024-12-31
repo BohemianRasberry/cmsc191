@@ -18,4 +18,8 @@ export class UserService {
   getActivities(): Observable<any> {
     return this.http.get(`${BASIC_URL}/api/activities`);
   }
+
+  postWorkout(workoutDto:any): Observable<any> {
+    return this.http.post(`${BASIC_URL}/api/workout`, workoutDto);
+  }
 }

@@ -1,0 +1,46 @@
+<div>
+    <div nz-row>
+        <h1 nz-card-grid [ngStyle]="gridStyle">Workout</h1>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzFlex="2">
+            <nz-card nzType="inner" style="margin: 16px" nzTitle="Post New Workout">
+                <form nz-form [formGroup]="workoutForm" class="custom-form" (ngSubmit)="submitForm()" >
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input your calories!">
+                            <input type="text" nz-input formControlName="caloriesBurnt"
+                                placeholder="Please enter the calories that you burned" />
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input your duration!">
+                            <input type="number" nz-input formControlName="duration"
+                                placeholder="Please enter the duration of your workout" />
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the date!">
+                            <nz-date-picker style="width: 100%;" formControlName="date"
+                                placeholder="Please enter the date" />
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the type!">
+                            <nz-select nzAllowClear nzPlaceHolders="Select the type" formControlName="type">
+                                <nz-option *ngFor="let type of listOfType" [nzLabel]="type" [nzValue]="type"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <button nz-button nzType="primary" nzBlock class="w-100" [disabled]="workoutForm.invalid">
+                        Post Workout
+                    </button>
+                </form>
+            </nz-card>
+        </div>
+    </div>
+</div>

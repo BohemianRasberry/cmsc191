@@ -31,7 +31,7 @@
                     <nz-form-item>
                         <nz-form-control nzErrorTip="Please input the date!">
                             <nz-date-picker style="width: 100%;" formControlName="date"
-                                placeholder="Please enter steps" />
+                                placeholder="Please enter the date" />
                         </nz-form-control>
                     </nz-form-item>
 
@@ -44,7 +44,7 @@
 
         <div nz-col nz-flex="3" style="margin-left: 20px;">
             <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Post New Activity">
-                <div nz-card-grid style="width: 50%;" *ngFor="let activity of activities">
+                <div nz-card-grid style="width: 100%;" *ngFor="let activity of activities">
                     <div nz-col nzSpan="30">
                         Calories Burned: <strong>{{ activity.caloriesBurnt }}</strong>
                         -
