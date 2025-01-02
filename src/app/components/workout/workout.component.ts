@@ -17,6 +17,7 @@ export class WorkoutComponent {
   }
 
   workoutForm!: FormGroup;
+  workouts: any[] = [];
 
   listOfType: any[] = [
     "Cardio",
@@ -52,6 +53,15 @@ export class WorkoutComponent {
           caloriesBurnt: [null, [Validators.required]],
           date: [null, [Validators.required]]
         });
+
+        this.getAllWorkouts();
+    }
+
+    getAllWorkouts(): void{
+      this.userService.getWorkouts().subscribe(res=>{
+        this.workouts = res;
+        console.log(this.workouts);
+      });
     }
 
     submitForm(): void {
@@ -60,7 +70,7 @@ export class WorkoutComponent {
           res => {
             this.message.success('Workout posted successfully', { nzDuration: 3000 });
             this.workoutForm.reset();
-  
+            this.getAllWorkouts();
           },
           error => {
             this.message.error('Error while posting Workout', { nzDuration: 3000 });
